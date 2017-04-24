@@ -1,0 +1,48 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: ru_RU\n"
+
+msgctxt "Addons::name::begateway"
+msgid "beGateway"
+msgstr "beGateway"
+
+msgctxt "Addons::description::begateway"
+msgid "Accept payments by bankcard and alternative payment methods"
+msgstr "Приём платежей с помощью банковских карт и через альтернативные платёжные системы"
+
+msgctxt "Languages::payments.begateway.token_error"
+msgid "There is an error to get a payment token."
+msgstr "Ошибка получения токена платежа."
+
+msgctxt "Languages::payments.begateway.return_checkout"
+msgid "Please return to the checkout and try again.<br>Click <a href=\"[return_url]\">here</a> to return."
+msgstr "Перейдите по <a href=\"[return_url]\">ссылке</a>, чтобы вернуться к оформлению заказа и попробовать ещё раз."
+
+msgctxt "Languages::payments.begateway.shop_id"
+msgid "Shop ID"
+msgstr "ID магазина"
+
+msgctxt "Languages::payments.begateway.shop_key"
+msgid "Secret key"
+msgstr "Секретный ключ магазина"
+
+msgctxt "Languages::payments.begateway.payment_page_domain"
+msgid "Payment page domain"
+msgstr "Домен страницы оплаты"
+
+msgctxt "Languages::payments.begateway.enable_bankcard"
+msgid "Enable bankcard payments"
+msgstr "Включить оплату банковскими картами"
+
+msgctxt "Languages::payments.begateway.enable_bankcard_halva"
+msgid "Enable Halva payments"
+msgstr "Включить оплату банковской картой Халва"
+
+msgctxt "Languages::payments.begateway.enable_erip"
+msgid "Enable ERIP payments"
+msgstr "Включить оплату через ЕРИП"
+
+msgctxt "Languages::payments.begateway.erip_service_code"
+msgid "ERIP service code"
+msgstr "Код услуги ЕРИП"

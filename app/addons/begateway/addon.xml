@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+  <id>begateway</id>
+  <name>beGateway</name>
+  <copyright>eComCharge Ltd SIA</copyright>
+  <authorEmail>techsupport@begateway.com</authorEmail>
+  <version>1.0.0</version>
+  <default_language>en</default_language>
+  <priority>100</priority>
+  <status>active</status>
+  <dependencies></dependencies>
+  <queries>
+    <item for="install">
+      INSERT INTO `?:payment_processors` (`processor_id`, `processor`, `processor_script`, `processor_template`, `admin_template`, `callback`, `type`, `addon`) VALUES
+      ('', 'beGateway', 'begateway.php', 'views/orders/components/payments/cc_outside.tpl', 'begateway.tpl', 'N', 'P', 'begateway')
+    </item>
+    <item for="uninstall">DELETE FROM ?:payment_processors WHERE processor = 'beGateway'</item>
+  </queries>
+  <compatibility>
+    <core_version>
+      <min>4.2.0</min>
+    </core_version>
+
+    <php_version>
+      <!-- The minimum PHP version required. -->
+      <min>5.3.6</min>
+    </php_version>
+
+    <php_extensions>
+      <curl>
+        <supported>Y</supported>
+      </curl>
+      <!-- A required PHP extension with a specific version. -->
+      <json>
+        <supported>Y</supported>
+      </json>
+    </php_extensions>
+  </compatibility>
+</addon>
