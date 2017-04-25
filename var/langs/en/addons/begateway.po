@@ -1,6 +1,7 @@
 msgid ""
-msgstr ""
+msgstr "Project-Id-Version: tygh"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: English\n"
 "Language: en_US\n"
 
 msgctxt "Addons::name::begateway"
