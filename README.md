@@ -8,7 +8,8 @@ This is a Payment Module for CS-Cart, that gives you the ability to process paym
 
 ## Installation
 
-1. Download [the payment module add-on](https://github.com/begateway/cs-cart-4.x-payment-module/raw/master/cs-cart-4.5.x-payment-module.zip)
+1. Download [the payment module
+   add-on](https://github.com/beGateway/cs-cart-4.5.x-payment-module/raw/master/cs-cart-4.5.x-payment-module.zip)
 2. In the CS-Cart administration panel, go to _Add-Ons_
    and install the payment module add-on
 3. In the administration panel, go to Administration > Payment methods.
