@@ -6,8 +6,8 @@ msgstr ""
 "Language: ru_RU\n"
 
 msgctxt "Addons::name::begateway"
-msgid "beGateway"
-msgstr "beGateway"
+msgid "BeGateway"
+msgstr "BeGateway"
 
 msgctxt "Addons::description::begateway"
 msgid "Accept payments by bankcard and alternative payment methods"

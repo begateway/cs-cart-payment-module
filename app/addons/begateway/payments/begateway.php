@@ -1,6 +1,6 @@
 <?php
 use Tygh\Registry;
-require __DIR__ . '/lib/lib/beGateway.php';
+require __DIR__ . '/lib/lib/BeGateway.php';
 
 if ( !defined('AREA') ) { die('Access denied'); }
 
@@ -25,15 +25,15 @@ if (defined('PAYMENT_NOTIFICATION')) {
     fn_order_placement_routines('checkout_redirect', $_REQUEST['order_id'], false);
 
   } elseif ($mode == 'notify') {
-    $webhook = new \beGateway\Webhook;
+    $webhook = new \BeGateway\Webhook;
     $order_info = fn_get_order_info($webhook->getTrackingId());
 
     if (empty($processor_data)) {
       $processor_data = fn_get_processor_data($order_info['payment_id']);
     }
 
-    \beGateway\Settings::$shopId = $processor_data['processor_params']['begateway_shop_id'];
-    \beGateway\Settings::$shopKey = $processor_data['processor_params']['begateway_shop_pass'];
+    \BeGateway\Settings::$shopId = $processor_data['processor_params']['begateway_shop_id'];
+    \BeGateway\Settings::$shopKey = $processor_data['processor_params']['begateway_shop_pass'];
 
     if ($webhook->isAuthorized()) {
       $pp_response = array();
@@ -62,11 +62,11 @@ if (defined('PAYMENT_NOTIFICATION')) {
 
   $order_id = $order_info['repaid'] ? $order_id . '_' . $order_info['repaid'] : $order_id;
 
-  \beGateway\Settings::$shopId = $processor_data['processor_params']['begateway_shop_id'];
-  \beGateway\Settings::$shopKey = $processor_data['processor_params']['begateway_shop_pass'];
-  \beGateway\Settings::$checkoutBase = 'https://' . $processor_data['processor_params']['begateway_checkout_domain'];
+  \BeGateway\Settings::$shopId = $processor_data['processor_params']['begateway_shop_id'];
+  \BeGateway\Settings::$shopKey = $processor_data['processor_params']['begateway_shop_pass'];
+  \BeGateway\Settings::$checkoutBase = 'https://' . $processor_data['processor_params']['begateway_checkout_domain'];
 
-  $transaction = new \beGateway\GetPaymentToken;
+  $transaction = new \BeGateway\GetPaymentToken;
 
   if ($processor_data['processor_params']['begateway_payment_type'] == 'authorization') {
     $transaction->setAuthorizationTransactionType();
@@ -110,21 +110,22 @@ if (defined('PAYMENT_NOTIFICATION')) {
   $transaction->customer->setZip($order_info['b_zipcode']);
   $transaction->customer->setPhone($order_info['phone']);
   $transaction->customer->setEmail($order_info['email']);
-  $transaction->setAddressHidden();
-  $transaction->setEmailReadonly();
+
+  $mode = $processor_data['processor_params']['begateway_mode'] == 'test';
+  $transaction->setTestMode($mode);
 
   if ($processor_data['processor_params']['begateway_bankcard'] == 'Y') {
-    $cc = new \beGateway\PaymentMethod\CreditCard;
+    $cc = new \BeGateway\PaymentMethod\CreditCard;
     $transaction->addPaymentMethod($cc);
   }
 
   if ($processor_data['processor_params']['begateway_bankcard_halva'] == 'Y') {
-    $halva = new \beGateway\PaymentMethod\CreditCardHalva;
+    $halva = new \BeGateway\PaymentMethod\CreditCardHalva;
     $transaction->addPaymentMethod($halva);
   }
 
   if ($processor_data['processor_params']['begateway_erip'] == 'Y') {
-    $erip = new \beGateway\PaymentMethod\Erip(array(
+    $erip = new \BeGateway\PaymentMethod\Erip(array(
       'order_id' => $order_id,
       'account_number' => $order_id,
       'service_no' => $processor_data['processor_params']['begateway_erip_service_code']

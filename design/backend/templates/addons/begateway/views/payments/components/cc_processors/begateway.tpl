@@ -56,3 +56,13 @@
     </select>
   </div>
 </div>
+
+<div class="control-group">
+	<label class="control-label" for="begateway_mode">{__("test_live_mode")}:</label>
+  <div class="controls">
+    <select name="payment_data[processor_params][begateway_mode]" id="begateway_mode">
+        <option value="test" {if $processor_params.begateway_mode == "test"}selected="selected"{/if}>{__("test")}</option>
+        <option value="live" {if $processor_params.begateway_mode == "live"}selected="selected"{/if}>{__("live")}</option>
+    </select>
+  </div>
+</div>
