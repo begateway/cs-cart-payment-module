@@ -9,7 +9,7 @@ This is a Payment Module for CS-Cart, that gives you the ability to process paym
 ## Installation
 
 1. Download [the payment module
-   add-on](https://github.com/beGateway/cs-cart-payment-module/raw/master/cs-cart-4.5.x-payment-module.zip)
+   add-on](https://github.com/begateway/cs-cart-payment-module/releases/download/1.5.0/cs-cart-payment-module.zip)
 2. In the CS-Cart administration panel, go to _Add-Ons_ and install the payment module add-on
 3. In the administration panel, go to _Administration → Payment methods_
 4. Click the _Add payment button_ on the right.
@@ -56,7 +56,7 @@ If you setup the module with default values, you can use the test data to make a
 
 ## Установка
 
-1. Скачайте [платёжный модуль](https://github.com/beGateway/cs-cart-payment-module/raw/master/cs-cart-4.5.x-payment-module.zip)
+1. Скачайте [платёжный модуль](https://github.com/begateway/cs-cart-payment-module/releases/download/1.5.0/cs-cart-payment-module.zip)
 2. В панели администратора CS-Cart перейдите в _Модули → Управления модулями_
    и установите ранее скачанный платёжный модуль
 3. В панели администратора CS-Cart перейдите в _Администрирование → Способы оплаты_
