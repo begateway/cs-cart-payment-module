@@ -4,7 +4,7 @@
   <name>BeGateway</name>
   <copyright>eComCharge Ltd SIA</copyright>
   <authorEmail>techsupport@begateway.com</authorEmail>
-  <version>1.5.0</version>
+  <version>1.5.1</version>
   <default_language>en</default_language>
   <priority>100</priority>
   <status>active</status>
@@ -23,7 +23,7 @@
 
     <php_version>
       <!-- The minimum PHP version required. -->
-      <min>5.3.6</min>
+      <min>5.6.0</min>
     </php_version>
 
     <php_extensions>

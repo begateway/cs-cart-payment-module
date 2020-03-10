@@ -142,7 +142,7 @@ if (defined('PAYMENT_NOTIFICATION')) {
   } else {
     $result = '<strong>'. __('payments.begateway.token_error') . '</strong><br>';
     $result.= __('payments.begateway.return_checkout', ['[return_url]' => $cancel_url]);
-    $result.='<br><br><pre>' . $result->getMessage() . '</pre>';
+    $result.='<br><br><pre>' . $response->getMessage() . '</pre>';
     fn_echo($result);
   }
   exit;
