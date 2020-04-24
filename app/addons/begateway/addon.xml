@@ -2,8 +2,8 @@
 <addon scheme="3.0">
   <id>begateway</id>
   <name>BeGateway</name>
-  <copyright>eComCharge Ltd SIA</copyright>
-  <authorEmail>techsupport@begateway.com</authorEmail>
+  <copyright>eComCharge LLC</copyright>
+  <authorEmail>techsupport@ecomcharge.com</authorEmail>
   <version>1.5.1</version>
   <default_language>en</default_language>
   <priority>100</priority>
