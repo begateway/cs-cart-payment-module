@@ -17,9 +17,9 @@ services:
     tty: true
     volumes:
       - ./app/addons/begateway:/var/www/html/app/addons/begateway
-      - ./design/backend/templates/addons/begateway:/var/ww/html/design/backend/templates/addons/begateway
-      - ./var/langs/en/addons/begateway.po:/var/ww/html/var/langs/en/addons/begateway.po
-      - ./var/langs/ru/addons/begateway.po:/var/ww/html/var/langs/ru/addons/begateway.po
+      - ./design/backend/templates/addons/begateway:/var/www/html/design/backend/templates/addons/begateway
+      - ./var/langs/en/addons/begateway.po:/var/www/html/var/langs/en/addons/begateway.po
+      - ./var/langs/ru/addons/begateway.po:/var/www/html/var/langs/ru/addons/begateway.po
     restart: always
 
   cscart_4_3:

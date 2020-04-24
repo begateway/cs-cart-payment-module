@@ -2,7 +2,7 @@
 use Tygh\Registry;
 require __DIR__ . '/lib/lib/BeGateway.php';
 
-if ( !defined('AREA') ) { die('Access denied'); }
+if (!defined('BOOTSTRAP')) { die('Access denied'); }
 
 if (defined('PAYMENT_NOTIFICATION')) {
 
@@ -56,7 +56,10 @@ if (defined('PAYMENT_NOTIFICATION')) {
       if (fn_check_payment_script('begateway.php', $order_id)) {
         fn_finish_payment($order_id, $pp_response); // Force customer notification
       }
+      die("OK");
     }
+
+    die("FAIL");
   }
 } else {
 
@@ -80,14 +83,13 @@ if (defined('PAYMENT_NOTIFICATION')) {
   }
 
   $ipn_url = fn_url("payment_notification.notify?payment=begateway&order_id=$order_id", AREA, 'current');
-  $ipn_url = str_replace('carts.local', 'webhook.begateway.com:8443', $ipn_url);
   $success_url = fn_url("payment_notification.result?payment=begateway&order_id=$order_id", AREA, 'current');
   $fail_url = fn_url("payment_notification.result?payment=begateway&order_id=$order_id", AREA, 'current');
   $cancel_url = fn_url("payment_notification.cancel?payment=begateway&order_id=$order_id", AREA, 'current');
 
   $lang_iso_code = CART_LANGUAGE;
-  $currency_code = $order_info['secondary_currency'];
-  $amount = $order_info['total'];
+  $currency_code = CART_SECONDARY_CURRENCY;
+  $amount = fn_format_price_by_currency($order_info['total']);
   $description = __("order") . ' # '.$order_id;
 
   $transaction->setNotificationUrl($ipn_url);

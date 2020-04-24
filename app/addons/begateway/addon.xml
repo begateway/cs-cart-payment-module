@@ -6,8 +6,10 @@
   <authorEmail>techsupport@ecomcharge.com</authorEmail>
   <version>1.5.1</version>
   <default_language>en</default_language>
-  <priority>100</priority>
+  <priority>4500</priority>
+  <position>0</position>
   <status>active</status>
+  <auto_install>MULTIVENDOR,ULTIMATE</auto_install>
   <dependencies></dependencies>
   <queries>
     <item for="install">
