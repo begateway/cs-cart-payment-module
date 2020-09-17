@@ -1,0 +1,57 @@
+version: '3.7'
+
+services:
+  cscart: &cscart
+    build: &build
+      context: ./docker
+      dockerfile: Dockerfile
+    networks:
+      cscart_net:
+        ipv4_address: 172.16.16.10
+    depends_on:
+      - mysql
+    ports:
+      - 80:8080
+    cap_add:
+      - NET_ADMIN
+    tty: true
+    volumes:
+      - ./app/addons/begateway:/var/www/html/app/addons/begateway
+      - ./design/backend/templates/addons/begateway:/var/www/html/design/backend/templates/addons/begateway
+      - ./var/langs/en/addons/begateway.po:/var/www/html/var/langs/en/addons/begateway.po
+      - ./var/langs/ru/addons/begateway.po:/var/www/html/var/langs/ru/addons/begateway.po
+    restart: always
+
+  cscart_4_3:
+    build:
+      args:
+        cscart_version: "4.3.1"
+      <<: *build
+    <<: *cscart
+
+  cscart_4_11:
+    build:
+      args:
+        cscart_version: "4.11.3"
+      <<: *build
+    <<: *cscart
+
+  mysql:
+    image: mysql:5.5
+    restart: always
+    networks:
+      cscart_net:
+        ipv4_address: 172.16.16.20
+    volumes:
+      - /var/lib/mysql
+      - ./docker/etc/mysql/mysql.conf.d/sql_mode.cnf:/etc/mysql/mysql.conf.d/sql_mode.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: cscart
+
+networks:
+  cscart_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.16.0/24"

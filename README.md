@@ -4,12 +4,12 @@ This is a Payment Module for CS-Cart, that gives you the ability to process paym
 
 ## Requirements
 
-  * CS-Cart 4.5.x/4.6.x/4.7.x version
+  * CS-Cart 4.5.x+ version
 
 ## Installation
 
-1. Download [the payment module
-   add-on](https://github.com/begateway/cs-cart-payment-module/releases/download/1.5.0/cs-cart-payment-module.zip)
+1. Download [the latest payment module
+   add-on](https://github.com/begateway/cs-cart-payment-module/raw/master/cs-cart-payment-module.zip)
 2. In the CS-Cart administration panel, go to _Add-Ons_ and install the payment module add-on
 3. In the administration panel, go to _Administration → Payment methods_
 4. Click the _Add payment button_ on the right.
@@ -39,7 +39,7 @@ If you setup the module with default values, you can use the test data to make a
   * Card ```4200000000000000``` to get succesful payment
   * Card ```4005550000000019``` to get failed payment
   * Card name ```JOHN DOE```
-  * Card expiry date ```01/20```
+  * Card expiry date ```01/30```
   * CVC ```123```
 
 ### ERIP test service code
@@ -52,11 +52,11 @@ If you setup the module with default values, you can use the test data to make a
 
 ## Требования
 
-  * CS-Cart версий 4.5.x/4.6.x/4.7.x
+  * CS-Cart версий 4.5.x+
 
 ## Установка
 
-1. Скачайте [платёжный модуль](https://github.com/begateway/cs-cart-payment-module/releases/download/1.5.0/cs-cart-payment-module.zip)
+1. Скачайте [последнюю версию платёжного модуля](https://github.com/begateway/cs-cart-payment-module/raw/master/cs-cart-payment-module.zip)
 2. В панели администратора CS-Cart перейдите в _Модули → Управления модулями_
    и установите ранее скачанный платёжный модуль
 3. В панели администратора CS-Cart перейдите в _Администрирование → Способы оплаты_
@@ -87,7 +87,7 @@ If you setup the module with default values, you can use the test data to make a
   * Карта ```4200000000000000``` для успешной оплаты
   * Карта ```4005550000000019``` для неуспешной оплаты
   * Имя на карте ```JOHN DOE```
-  * Срок действия карты ```01/20```
+  * Срок действия карты ```01/30```
   * CVC ```123```
 
 ### Тестовый код услуги ЕРИП
