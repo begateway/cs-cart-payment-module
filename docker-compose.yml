@@ -32,7 +32,7 @@ services:
   cscart_4_11:
     build:
       args:
-        cscart_version: "4.11.3"
+        cscart_version: "4.11.1"
       <<: *build
     <<: *cscart
 
@@ -46,7 +46,7 @@ services:
       - /var/lib/mysql
       - ./docker/etc/mysql/mysql.conf.d/sql_mode.cnf:/etc/mysql/mysql.conf.d/sql_mode.cnf
     environment:
-      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: cscart
 
 networks:
