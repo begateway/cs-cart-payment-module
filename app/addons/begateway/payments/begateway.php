@@ -116,23 +116,29 @@ if (defined('PAYMENT_NOTIFICATION')) {
   $mode = $processor_data['processor_params']['begateway_mode'] == 'test';
   $transaction->setTestMode($mode);
 
-  if ($processor_data['processor_params']['begateway_bankcard'] == 'Y') {
-    $cc = new \BeGateway\PaymentMethod\CreditCard;
-    $transaction->addPaymentMethod($cc);
+  if (isset($processor_data['processor_params']['begateway_bankcard'])) {
+    if ($processor_data['processor_params']['begateway_bankcard'] == 'Y') {
+      $cc = new \BeGateway\PaymentMethod\CreditCard;
+      $transaction->addPaymentMethod($cc);
+    }
   }
 
-  if ($processor_data['processor_params']['begateway_bankcard_halva'] == 'Y') {
-    $halva = new \BeGateway\PaymentMethod\CreditCardHalva;
-    $transaction->addPaymentMethod($halva);
+  if (isset($processor_data['processor_params']['begateway_bankcard_halva'])) {
+    if ($processor_data['processor_params']['begateway_bankcard_halva'] == 'Y') {
+      $halva = new \BeGateway\PaymentMethod\CreditCardHalva;
+      $transaction->addPaymentMethod($halva);
+    }
   }
 
-  if ($processor_data['processor_params']['begateway_erip'] == 'Y') {
-    $erip = new \BeGateway\PaymentMethod\Erip(array(
-      'order_id' => $order_id,
-      'account_number' => $order_id,
-      'service_no' => $processor_data['processor_params']['begateway_erip_service_code']
-    ));
-    $transaction->addPaymentMethod($erip);
+  if (isset($processor_data['processor_params']['begateway_erip'])) {
+    if ($processor_data['processor_params']['begateway_erip'] == 'Y') {
+      $erip = new \BeGateway\PaymentMethod\Erip(array(
+        'order_id' => $order_id,
+        'account_number' => $order_id,
+        'service_no' => $processor_data['processor_params']['begateway_erip_service_code']
+      ));
+      $transaction->addPaymentMethod($erip);
+    }
   }
 
   try {
