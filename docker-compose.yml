@@ -4,7 +4,9 @@ services:
   cscart: &cscart
     build: &build
       context: ./docker
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile5
+      args:
+        cscart_version: "4.3.1"
     networks:
       cscart_net:
         ipv4_address: 172.16.16.10
@@ -22,22 +24,8 @@ services:
       - ./var/langs/ru/addons/begateway.po:/var/www/html/var/langs/ru/addons/begateway.po
     restart: always
 
-  cscart_4_3:
-    build:
-      args:
-        cscart_version: "4.3.1"
-      <<: *build
-    <<: *cscart
-
-  cscart_4_11:
-    build:
-      args:
-        cscart_version: "4.11.1"
-      <<: *build
-    <<: *cscart
-
   mysql:
-    image: mysql:5.5
+    image: mysql:5.6
     restart: always
     networks:
       cscart_net:

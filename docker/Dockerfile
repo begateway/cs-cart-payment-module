@@ -10,6 +10,12 @@ ARG cscart_version
 
 ADD src/cscart_v${cscart_version}_ru.zip /cscart.zip
 ADD scripts/start.sh /start.sh
+ADD scripts/local_conf.php /var/www/html/local_conf.php
+
+RUN unzip -o /cscart.zip -d /var/www/html && \
+    rm /cscart.zip && \
+    chown -R nobody.nobody /var/www/html
+
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY config/nginx.conf /etc/nginx/nginx.conf
 
