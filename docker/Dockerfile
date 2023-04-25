@@ -1,10 +1,11 @@
-FROM trafex/alpine-nginx-php7:latest
+FROM trafex/alpine-nginx-php7:1.10.0
 
 USER root
 
 RUN apk --no-cache add php7-simplexml php7-zip postfix awall su-exec php7-soap\
     php7-curl php7-sockets php7-exif php7-xml php7-dom php7-xmlreader \
-    php7-xmlwriter php7-fileinfo php7-ftp php7-redis php7-sqlite3 php7-apcu
+    php7-xmlwriter php7-fileinfo php7-ftp php7-redis php7-sqlite3 php7-apcu \
+    php7-gd php7-mbstring php7-iconv
 
 ARG cscart_version
 

@@ -4,9 +4,9 @@ services:
   cscart: &cscart
     build: &build
       context: ./docker
-      dockerfile: Dockerfile5
+      dockerfile: Dockerfile
       args:
-        cscart_version: "4.3.1"
+        cscart_version: "4.16.1"
     networks:
       cscart_net:
         ipv4_address: 172.16.16.10
