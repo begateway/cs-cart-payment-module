@@ -1,0 +1,20 @@
+FROM jebovic/alpine-nginx-php5
+
+USER root
+
+RUN apk --no-cache add php5-zip postfix awall su-exec php5-soap\
+    php5-curl php5-sockets php5-exif php5-xml php5-dom php5-xmlreader \
+    php5-ftp php5-redis php5-sqlite3 php5-apcu
+
+ARG cscart_version
+
+ADD src/cscart_v${cscart_version}_ru.zip /cscart.zip
+ADD scripts/local_conf.php /var/www/html/local_conf.php
+
+RUN mkdir -p /var/www/html && \
+    unzip -o /cscart.zip -d /var/www/html && \
+    chown -R www-data.www-data /var/www/html
+
+COPY config/nginx_php5.conf /etc/nginx/nginx.conf
+
+VOLUME ["/var/www"]
