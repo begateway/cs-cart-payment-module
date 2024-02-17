@@ -1,6 +1,6 @@
 <?php
 use Tygh\Registry;
-require __DIR__ . '/lib/lib/BeGateway.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 if (!defined('BOOTSTRAP')) { die('Access denied'); }
 
@@ -87,9 +87,19 @@ if (defined('PAYMENT_NOTIFICATION')) {
   $fail_url = fn_url("payment_notification.result?payment=begateway&order_id=$order_id", AREA, 'current');
   $cancel_url = fn_url("payment_notification.cancel?payment=begateway&order_id=$order_id", AREA, 'current');
 
+  $currencies = Registry::get('currencies');
+
   $lang_iso_code = CART_LANGUAGE;
-  $currency_code = CART_SECONDARY_CURRENCY;
-  $amount = fn_format_price_by_currency($order_info['total']);
+
+  if (empty($processor_data['processor_params']['currency'])) {
+    $currency = isset($order_info['secondary_currency']) ? $currencies[$order_info['secondary_currency']] : $currencies[CART_SECONDARY_CURRENCY];
+    $currency_code = $currency['currency_code'];
+  } else {
+    $currency_code = $processor_data['processor_params']['currency'];
+  }
+  
+  $amount = fn_format_price_by_currency($order_info['total'], CART_PRIMARY_CURRENCY, $currency_code);
+
   $description = __("order") . ' # '.$order_id;
 
   $transaction->setNotificationUrl($ipn_url);
@@ -112,6 +122,9 @@ if (defined('PAYMENT_NOTIFICATION')) {
   $transaction->customer->setZip($order_info['b_zipcode']);
   $transaction->customer->setPhone($order_info['phone']);
   $transaction->customer->setEmail($order_info['email']);
+
+  $transaction->additional_data->setPlatformData('CS-Cart v' . PRODUCT_NAME);
+  $transaction->additional_data->setIntegrationData('BeGateway CS-Cart v' . fn_get_addon_version('begateway'));
 
   $mode = $processor_data['processor_params']['begateway_mode'] == 'test';
   $transaction->setTestMode($mode);
@@ -155,4 +168,3 @@ if (defined('PAYMENT_NOTIFICATION')) {
   }
   exit;
 }
-?>
