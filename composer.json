@@ -1,0 +1,23 @@
+{
+    "name": "begateway/cs-cart-payment-module",
+    "description": "BeGateway Payment Gateway for CS-Cart",
+    "keywords": [
+        "bepaid",
+        "begateway",
+        "payment processing",
+        "api"
+    ],
+    "config": {
+        "vendor-dir": "./app/addons/begateway/vendor"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BeGateway",
+            "email": "admin@begateway.com"
+        }
+    ],
+    "require": {
+        "begateway/begateway-api-php": ">=5.1.0"
+    }
+}

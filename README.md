@@ -9,7 +9,7 @@ This is a Payment Module for CS-Cart, that gives you the ability to process paym
 ## Installation
 
 1. Download [the latest payment module
-   add-on](https://github.com/begateway/cs-cart-payment-module/raw/master/cs-cart-payment-module.zip)
+   add-on](https://github.com/begateway/cs-cart-payment-module/releases)
 2. In the CS-Cart administration panel, go to _Add-Ons_ and install the payment module add-on
 3. In the administration panel, go to _Administration → Payment methods_
 4. Click the _Add payment button_ on the right.
@@ -22,6 +22,7 @@ This is a Payment Module for CS-Cart, that gives you the ability to process paym
      * Select payments methods to enable during checkout
      * Select a transaction type: payment or authorization
      * Select the module mode: live or test
+     * Select the currency in which to accept payments. If not specified, the currency chosen by the user on the storefront will be used
 8. Click the `Save` button to save the changes.
 9. Test your setup with test card
 10. Ask your account manager to go your shop to production
@@ -56,7 +57,7 @@ If you setup the module with default values, you can use the test data to make a
 
 ## Установка
 
-1. Скачайте [последнюю версию платёжного модуля](https://github.com/begateway/cs-cart-payment-module/raw/master/cs-cart-payment-module.zip)
+1. Скачайте [последнюю версию платёжного модуля](https://github.com/begateway/cs-cart-payment-module/releases)
 2. В панели администратора CS-Cart перейдите в _Модули → Управления модулями_
    и установите ранее скачанный платёжный модуль
 3. В панели администратора CS-Cart перейдите в _Администрирование → Способы оплаты_
@@ -70,6 +71,7 @@ If you setup the module with default values, you can use the test data to make a
      * Выберите активные способы оплаты
      * Выберите тип операции: Платёж или Авторизация
      * Выберите режим работы модуля: тестовый или рабочий
+     * Выберите валюту, в которой принимать платежи. Если не задана, то будет использована валюта, которую выбрал пользователь на витрине
 8. Нажмите _Сохранить_
 9. Протестируйте оплату с помощью тестовой карты
 10. Попросите вашего менеджера активировать ваш магазин для приема реальных оплат
